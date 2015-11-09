@@ -9,6 +9,11 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/action_preferencias"
+        app:showAsAction="never"
+        android:title="Preferencias" />
+
+    <item
         android:id="@+id/action_about"
         app:showAsAction="never"
         android:title="Sobre" />
@@ -17,9 +22,5 @@
         app:showAsAction="never"
         android:title="Ajuda" />
 
-    <item
-        android:id="@+id/action_settings"
-        app:showAsAction="never"
-        android:title="Configurações" />
 </menu>
 

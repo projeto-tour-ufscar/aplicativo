@@ -20,4 +20,5 @@ public class VarConUtils {
     public static final int		PREFERENCIAS				= 2;
     public static final int		PRINCIPAL   				= 3;
     public static final int		PROFILE   				    = 4;
+    public static final int		MAPAS   				    = 5;
 }

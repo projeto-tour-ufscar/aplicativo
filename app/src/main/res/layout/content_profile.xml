@@ -119,14 +119,13 @@
 
                     <Button
                         android:id="@+id/limpar_button"
-                        style="?android:textAppearanceSmall"
+                        style="?android:textAppearanceSmallPopupMenu"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="40"
-                        android:background="@android:color/darker_gray"
                         android:text="@string/label_limpar"
-                        android:textColor="@android:color/white"
+                        android:textColor="@android:color/black"
                         android:textStyle="bold" />
 
                     <View
@@ -137,14 +136,13 @@
 
                     <Button
                         android:id="@+id/confirmar_button"
-                        style="?android:textAppearanceSmall"
+                        style="?android:textAppearanceSmallPopupMenu"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="40"
-                        android:background="@android:color/holo_green_dark"
                         android:text="@string/label_confirmar"
-                        android:textColor="@android:color/white"
+                        android:textColor="@android:color/holo_green_dark"
                         android:textStyle="bold" />
 
                 </LinearLayout>

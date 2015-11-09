@@ -1,0 +1,105 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="turismo.com.br.turismo.preferencias.PreferenciasActivity$PlaceholderFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/section_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/holo_blue_dark"
+                android:padding="5dp"
+                android:text="Hospedagem"
+                android:textColor="@android:color/white" />
+
+            <CheckBox
+                android:id="@+id/preferencia1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:checked="false"
+                android:text="Hotel" />
+
+            <CheckBox
+                android:id="@+id/preferencia2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:checked="false"
+                android:text="Pousada" />
+
+            <CheckBox
+                android:id="@+id/preferencia3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:checked="false"
+                android:text="Casa" />
+
+            <CheckBox
+                android:id="@+id/preferencia4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:checked="false"
+                android:text="Albergue" />
+
+            <CheckBox
+                android:id="@+id/preferencia5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:checked="false"
+                android:text="Hotel Fazenda" />
+
+            <CheckBox
+                android:id="@+id/preferencia6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:checked="false"
+                android:text="Resort" />
+
+            <CheckBox
+                android:id="@+id/preferencia7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:checked="false"
+                android:text="Domiciliar" />
+
+            <CheckBox
+                android:id="@+id/preferencia8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:checked="false"
+                android:text="Motel" />
+
+            <CheckBox
+                android:id="@+id/preferencia9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:checked="false"
+                android:text="Apartamento" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

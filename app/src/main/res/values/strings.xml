@@ -6,6 +6,7 @@
     <string name="action_settings">Configurações</string>
     <string name="action_confirmar">Confirmar</string>
     <string name="action_entrar">Entrar</string>
+    <string name="action_pular">Pular</string>
     <string name="label_limpar">Limpar</string>
     <string name="label_confirmar">Confirmar</string>
 
@@ -39,4 +40,8 @@
     <string name="label_profile">Cadastro</string>
     <string name="label_info_usuario">Dados de Cadastro</string>
     <string name="prompt_name">Nome</string>
+
+
+    <!-- Tela de Mapas -->
+    <string name="label_mapas">Mapa</string>
 </resources>

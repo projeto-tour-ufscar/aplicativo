@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.view.PagerTabStrip;
-import android.support.v4.view.PagerTitleStrip;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -44,6 +42,8 @@ public class PreferenciasActivity extends AppCompatActivity {
      */
     private ViewPager mViewPager;
 
+    private TabLayout tabLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +59,7 @@ public class PreferenciasActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
         tabLayout.getTabAt(0).setIcon(R.mipmap.hotel_white).setText("");
         tabLayout.getTabAt(1).setIcon(R.mipmap.food_white).setText("");
@@ -71,7 +71,14 @@ public class PreferenciasActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Salvando as preferencias...", Snackbar.LENGTH_LONG)
+                if (tabLayout.getSelectedTabPosition() < 4) {
+                    tabLayout.getTabAt(tabLayout.getSelectedTabPosition() + 1).select();
+                } else {
+                    Intent intent = new Intent(PreferenciasActivity.this, PrincipalActivity.class);
+                    startActivityForResult(intent, VarConUtils.PREFERENCIAS);
+                    finish();
+                }
+                Snackbar.make(view, "Salvando as preferencias...", Snackbar.LENGTH_SHORT)
                         .setAction("Cancelar", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -139,16 +146,16 @@ public class PreferenciasActivity extends AppCompatActivity {
                     break;
                 case 1:
                     mTitle = "Alimentação";
-                break;
+                    break;
                 case 2:
                     mTitle = "Passeio";
-                break;
+                    break;
                 case 3:
                     mTitle = "Negocios";
-                break;
+                    break;
                 case 4:
                     mTitle = "Eventos";
-                break;
+                    break;
             }
             return mTitle;
         }
@@ -183,9 +190,37 @@ public class PreferenciasActivity extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_preferencias, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getTitle(getArguments().getInt(ARG_SECTION_NUMBER) - 1));
+            View rootView = null;
+
+            switch (getArguments().getInt(ARG_SECTION_NUMBER) - 1) {
+                case 1:
+                    //"Alimentação";
+                    rootView = inflater.inflate(R.layout.fragment_preferencias_alimentacao, container, false);
+                    break;
+
+                case 2:
+                    //"Passeio";
+                    rootView = inflater.inflate(R.layout.fragment_preferencias_passeio, container, false);
+                    break;
+
+                case 3:
+                    //"Negocios";
+                    rootView = inflater.inflate(R.layout.fragment_preferencias_negocios, container, false);
+                    break;
+
+                case 4:
+                    //"Eventos";
+                    rootView = inflater.inflate(R.layout.fragment_preferencias_eventos, container, false);
+                    break;
+
+                default:
+                    //"Hospedagem";
+                    rootView = inflater.inflate(R.layout.fragment_preferencias_hospedagem, container, false);
+                    break;
+            }
+
+            ((TextView) rootView.findViewById(R.id.section_label)).setText(getTitle(getArguments().getInt(ARG_SECTION_NUMBER) - 1));
+
             return rootView;
         }
 

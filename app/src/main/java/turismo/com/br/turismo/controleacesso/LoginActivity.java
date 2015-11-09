@@ -21,6 +21,8 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
@@ -35,6 +37,7 @@ import java.util.List;
 
 import turismo.com.br.turismo.R;
 import turismo.com.br.turismo.preferencias.PreferenciasActivity;
+import turismo.com.br.turismo.principal.PrincipalActivity;
 import turismo.com.br.turismo.profile.ProfileActivity;
 import turismo.com.br.turismo.utils.VarConUtils;
 
@@ -104,8 +107,53 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         });
 
+        Button mFacebookButton = (Button) findViewById(R.id.facebook_button);
+        mFacebookButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showProgress(true);
+                mAuthTask = new UserLoginTask("email@email.com", "password");
+                mAuthTask.execute((Void) null);
+            }
+        });
+
+        Button mGoogleButton = (Button) findViewById(R.id.google_button);
+        mGoogleButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showProgress(true);
+                mAuthTask = new UserLoginTask("email@email.com", "password");
+                mAuthTask.execute((Void) null);
+            }
+        });
+
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_login, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_pular) {
+            Intent intent = new Intent(LoginActivity.this, PrincipalActivity.class);
+            startActivityForResult(intent, VarConUtils.LOGIN);
+            finish();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
